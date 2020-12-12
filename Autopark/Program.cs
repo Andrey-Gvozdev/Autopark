@@ -23,47 +23,47 @@ namespace Autopark
             var car7 = new Vehicle(7, vehicleTypesArr[3], new DieselEngine(20.1, 4.75), "МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Vehicle.Colour.Red, 135, new List<Rent>());
             Vehicle[] vehicleArr = { car1, car2, car3, car4, car5, car6, car7};
 
-            //PrintVehicleTypes(vehicleTypesArr);
-            //Console.WriteLine("###########################");
+            PrintVehicleTypes(vehicleTypesArr);
+            Console.WriteLine("###########################");
 
-            //Console.WriteLine("Average tax is: " + CalcAverageTax(vehicleTypesArr));
+            Console.WriteLine("Average tax is: " + CalcAverageTax(vehicleTypesArr));
 
-            //Console.WriteLine("###########################");
-            //Helper.ArrPrinter(vehicleTypesArr);
+            Console.WriteLine("###########################");
+            Helper.ArrPrinter(vehicleTypesArr);
 
-            //Array.Sort(vehicleArr);
+            Array.Sort(vehicleArr);
 
-            //Console.WriteLine("###########################");
-            //Helper.ArrPrinter(vehicleArr);
+            Console.WriteLine("###########################");
+            Helper.ArrPrinter(vehicleArr);
 
-            //Console.WriteLine("###########################");
-            //PrintMaxAndMinMileage(vehicleArr);
+            Console.WriteLine("###########################");
+            PrintMaxAndMinMileage(vehicleArr);
 
-            //Console.WriteLine("###########################");
-            //FindSameVehicles(vehicleArr);
+            Console.WriteLine("###########################");
+            FindSameVehicles(vehicleArr);
 
-            //Console.WriteLine("###########################");
-            //PrintFurtherDrivingCar(vehicleArr);
+            Console.WriteLine("###########################");
+            PrintFurtherDrivingCar(vehicleArr);
 
-            //Console.WriteLine("###########################");
-            //Collections collection = new Collections(@"types.csv", @"rents.csv", @"vehicles.csv");
+            Console.WriteLine("###########################");
+            Collections collection = new Collections(@"types.csv", @"rents.csv", @"vehicles.csv");
 
-            //Comparer kek = new Comparer();
-            //collection.Print();
-            //collection.Insert(-1, new Vehicle(collection.VehicleList.Count + 1, vehicleTypesArr[1], new DieselEngine(27, 4.2), "Mashinka", "0001", 1233, 2021, 345, Vehicle.Colour.Red, 700, new List<Rent>()));
-            //collection.Delete(1);
-            //collection.Delete(4);
-            //Console.WriteLine("###########################");
-            //collection.Print();
-            //collection.Sort(kek);
-            //Console.WriteLine("###########################");
-            //collection.Print();
+            Comparer kek = new Comparer();
+            collection.Print();
+            collection.Insert(-1, new Vehicle(collection.VehicleList.Count + 1, vehicleTypesArr[1], new DieselEngine(27, 4.2), "Mashinka", "0001", 1233, 2021, 345, Vehicle.Colour.Red, 700, new List<Rent>()));
+            collection.Delete(1);
+            collection.Delete(4);
+            Console.WriteLine("###########################");
+            collection.Print();
+            collection.Sort(kek);
+            Console.WriteLine("###########################");
+            collection.Print();
 
-            //Console.WriteLine("###########################");
-            //Carwash carWashing = new Carwash();
+            Console.WriteLine("###########################");
+            Carwash carWashing = new Carwash();
 
-            //Console.WriteLine("###########################");
-            //Garage garage = new Garage();
+            Console.WriteLine("###########################");
+            Garage garage = new Garage();
 
             Orders oders = new Orders();
         }
