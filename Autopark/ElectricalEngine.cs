@@ -8,11 +8,13 @@ namespace Autopark
     {
         private double electricityConsumption;
         public double ElectricityConsumption { get { return electricityConsumption; } set { electricityConsumption = value; } }
+
         public ElectricalEngine(double electricityConsumption)
             : base("Electrical", 0.1)
         {
             this.electricityConsumption = electricityConsumption;
         }
+
         public override double GetMaxKilometers(double batterySize)
         {
             return batterySize / electricityConsumption;

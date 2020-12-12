@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Autopark
 {
@@ -6,52 +8,64 @@ namespace Autopark
     {
         static void Main(string[] args)
         {
-            var bus = new VehicleType("Bus", 1.2f);
-            var car = new VehicleType("Car", 1.0f);
-            var rink = new VehicleType("Rink", 1.5f);
-            var tractor = new VehicleType("Tractor", 1.3f);
+            var bus = new VehicleType(1, "Bus", 1.2f);
+            var car = new VehicleType(2, "Car", 1.0f);
+            var rink = new VehicleType(3, "Rink", 1.5f);
+            var tractor = new VehicleType(4, "Tractor", 1.3f);
             VehicleType[] vehicleTypesArr = { bus, car, rink, tractor };
 
-            var engineCar1 = new GasolineEngine(75, 8.1);
-            var engineCar2 = new GasolineEngine(75, 8.5);
-            var engineCar3 = new ElectricalEngine(50);
-            engineCar3.EngineCapacity = 150;
-            var engineCar4 = new DieselEngine(55, 7.2);
-            var engineCar5 = new ElectricalEngine(25);
-            engineCar5.EngineCapacity = 70;
-            var engineCar6 = new DieselEngine(20, 25);
-            var engineCar7 = new DieselEngine(135, 20.1);
-
-            var car1 = new Vehicle(vehicleTypesArr[0], engineCar1, "Volkswagen Crafter", "5427 AX-7", 2022, 2015, 376000, Vehicle.Colour.Blue);
-            var car2 = new Vehicle(vehicleTypesArr[0], engineCar2, "Volkswagen Crafter", "6427 AA-7", 2500, 2014, 227010, Vehicle.Colour.White);
-            var car3 = new Vehicle(vehicleTypesArr[0], engineCar3, "Electric Bus E321", "6785 BA-7", 12080, 2019, 20451, Vehicle.Colour.Green);
-            var car4 = new Vehicle(vehicleTypesArr[1], engineCar4, "Golf 5", "8682 AX-7", 1200, 2006, 230451, Vehicle.Colour.Gray);
-            var car5 = new Vehicle(vehicleTypesArr[1], engineCar5, "Tesla Model S 70D", "E001 FF-7", 2200, 2019, 10454, Vehicle.Colour.White);
-            var car6 = new Vehicle(vehicleTypesArr[2], engineCar6, "Hamm HD 12 VV", null, 3000, 2016, 122, Vehicle.Colour.Yellow);
-            var car7 = new Vehicle(vehicleTypesArr[3], engineCar7, "МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Vehicle.Colour.Red);
+            var car1 = new Vehicle(1, vehicleTypesArr[0], new GasolineEngine(8.1, 2), "Volkswagen Crafter", "5427 AX-7", 2022, 2015, 376000, Vehicle.Colour.Blue, 75, new List<Rent>());
+            var car2 = new Vehicle(2, vehicleTypesArr[0], new GasolineEngine(8.5, 2.18), "Volkswagen Crafter", "6427 AA-7", 2500, 2014, 227010, Vehicle.Colour.White, 75, new List<Rent>());
+            var car3 = new Vehicle(3, vehicleTypesArr[0], new ElectricalEngine(50), "Electric Bus E321", "6785 BA-7", 12080, 2019, 20451, Vehicle.Colour.Green, 150, new List<Rent>());
+            var car4 = new Vehicle(4, vehicleTypesArr[1], new DieselEngine(7.2, 1.6), "Golf 5", "8682 AX-7", 1200, 2006, 230451, Vehicle.Colour.Gray, 55, new List<Rent>());
+            var car5 = new Vehicle(5, vehicleTypesArr[1], new ElectricalEngine(25), "Tesla Model S 70D", "E001 FF-7", 2200, 2019, 10454, Vehicle.Colour.White, 70, new List<Rent>());
+            var car6 = new Vehicle(6, vehicleTypesArr[2], new DieselEngine(25, 3.2), "Hamm HD 12 VV", null, 3000, 2016, 122, Vehicle.Colour.Yellow, 20, new List<Rent>());
+            var car7 = new Vehicle(7, vehicleTypesArr[3], new DieselEngine(20.1, 4.75), "МТЗ Беларус-1025.4", "1145 AB-7", 1200, 2020, 109, Vehicle.Colour.Red, 135, new List<Rent>());
             Vehicle[] vehicleArr = { car1, car2, car3, car4, car5, car6, car7};
 
-            PrintVehicleTypes(vehicleTypesArr);
-            Console.WriteLine();
-            
-            Console.WriteLine("Average tax is: " + CalcAverageTax(vehicleTypesArr));
+            //PrintVehicleTypes(vehicleTypesArr);
+            //Console.WriteLine("###########################");
 
-            Console.WriteLine();
-            Helper.ArrPrinter(vehicleTypesArr);
-            
-            Array.Sort(vehicleArr);
+            //Console.WriteLine("Average tax is: " + CalcAverageTax(vehicleTypesArr));
 
-            Console.WriteLine();
-            Helper.ArrPrinter(vehicleArr);
+            //Console.WriteLine("###########################");
+            //Helper.ArrPrinter(vehicleTypesArr);
 
-            Console.WriteLine();
-            PrintMaxAndMinMileage(vehicleArr);
+            //Array.Sort(vehicleArr);
 
-            Console.WriteLine();
-            FindSameVehicles(vehicleArr);
+            //Console.WriteLine("###########################");
+            //Helper.ArrPrinter(vehicleArr);
 
-            Console.WriteLine();
-            PrintFurtherDrivingCar(vehicleArr);
+            //Console.WriteLine("###########################");
+            //PrintMaxAndMinMileage(vehicleArr);
+
+            //Console.WriteLine("###########################");
+            //FindSameVehicles(vehicleArr);
+
+            //Console.WriteLine("###########################");
+            //PrintFurtherDrivingCar(vehicleArr);
+
+            //Console.WriteLine("###########################");
+            //Collections collection = new Collections(@"types.csv", @"rents.csv", @"vehicles.csv");
+
+            //Comparer kek = new Comparer();
+            //collection.Print();
+            //collection.Insert(-1, new Vehicle(collection.VehicleList.Count + 1, vehicleTypesArr[1], new DieselEngine(27, 4.2), "Mashinka", "0001", 1233, 2021, 345, Vehicle.Colour.Red, 700, new List<Rent>()));
+            //collection.Delete(1);
+            //collection.Delete(4);
+            //Console.WriteLine("###########################");
+            //collection.Print();
+            //collection.Sort(kek);
+            //Console.WriteLine("###########################");
+            //collection.Print();
+
+            //Console.WriteLine("###########################");
+            //Carwash carWashing = new Carwash();
+
+            //Console.WriteLine("###########################");
+            //Garage garage = new Garage();
+
+            Orders oders = new Orders();
         }
 
         private static void PrintFurtherDrivingCar(Vehicle[] arr)
@@ -59,7 +73,7 @@ namespace Autopark
             int carNum = 0;
             for (int i = 1; i < arr.Length; i++)
             {
-                if (arr[i - 1].engine.GetMaxKilometers(arr[i - 1].engine.EngineCapacity) < arr[i].engine.GetMaxKilometers(arr[i].engine.EngineCapacity))
+                if (arr[i - 1].engine.GetMaxKilometers(arr[i - 1].TankCapacity) < arr[i].engine.GetMaxKilometers(arr[i].TankCapacity))
                 {
                     carNum = i;
                 }
